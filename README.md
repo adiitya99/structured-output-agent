@@ -2,8 +2,6 @@
 
 [![Python Tests](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml)
 
-[![Python Tests](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml)
-
 A Python-based agent that generates validated, structured task outputs using Pydantic, with a FastAPI interface and automated testing.
 
 ## Features
@@ -57,17 +55,19 @@ Open http://127.0.0.1:8000/docs to explore the API.
 
 ## API Endpoints
 
-### Health check
+### Health Check
 
 `GET /health`
 
-### Create a task
+Checks whether the API is running.
+
+### Create a Task
 
 `POST /tasks`
 
 This endpoint requires an `X-API-Key` header.
 
-Example JSON body:
+Example JSON request body:
 
 ```json
 {
@@ -83,7 +83,9 @@ python -m pytest -v
 
 ## Continuous Integration
 
-GitHub Actions runs the test suite on pushes and pull requests.
+GitHub Actions automatically runs the test suite on pushes and pull requests.
+
+Check the workflow status using the badge at the top of this README.
 
 ## Current Limitations
 
@@ -94,6 +96,3 @@ GitHub Actions runs the test suite on pushes and pull requests.
 ## License
 
 No license has been specified yet.
-
-
-
