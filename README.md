@@ -2,6 +2,8 @@
 
 [![Python Tests](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml)
 
+[![Python Tests](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/adiitya99/structured-output-agent/actions/workflows/tests.yml)
+
 A Python-based agent that generates validated, structured task outputs using Pydantic, with a FastAPI interface and automated testing.
 
 ## Features
@@ -92,5 +94,6 @@ GitHub Actions runs the test suite on pushes and pull requests.
 ## License
 
 No license has been specified yet.
+
 
 
