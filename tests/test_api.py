@@ -1,9 +1,9 @@
-
+﻿
 import pytest
 from fastapi.testclient import TestClient
 from uuid import UUID
 from structured_agent.api import app
-
+from structured_agent.api import limiter
 
 client = TestClient(app)
 
@@ -109,6 +109,22 @@ def test_tasks_reject_wrong_api_key():
     assert response.status_code == 401
 
 
+def test_task_rate_limit_returns_429():
+    limiter.reset()
+
+    try:
+        responses = [
+            client.post(
+                "/tasks",
+                json={"prompt": "Study networking"},
+                headers={"X-API-Key": "test-secret-key"},
+            )
+            for _ in range(11)
+        ]
+
+        assert any(response.status_code == 429 for response in responses)
+    finally:
+        limiter.reset()
 def test_tasks_reject_when_server_key_is_unconfigured(monkeypatch):
     monkeypatch.delenv("AGENT_API_KEY", raising=False)
 
